@@ -166,7 +166,59 @@ namespace Escuela_Api.Controllers
                 return BadRequest();
             }
         }
-       
+        [Route("EliminarEstudiante/{Idestudiante}")]
+        [HttpGet]
+        public IActionResult EliminarEstudiante( int Idestudiante)
+        {
+            if (_EscuelaServicio.EliminarEstudiante(Idestudiante))
+            {
+                return Ok("Se elimino el estudiante correctamente");
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+        [Route("EliminarProfesor/{Idprofesor}")]
+        [HttpGet]
+        public IActionResult EliminarProfesor(int Idprofesor)
+        {
+            if (_EscuelaServicio.EliminarProfesor(Idprofesor))
+            {
+                return Ok("Se elimino el profesor correctamente");
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+        [Route("EliminarCalificacion/{Idcalificacion}")]
+        [HttpGet]
+        public IActionResult EliminarCalificacion(int Idcalificacion)
+        {
+            if (_EscuelaServicio.EliminarCalificacion(Idcalificacion))
+            {
+                return Ok("Se elimino la calificacion correctamente");
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+        [Route("EliminarMateria/{Idmateria}")]
+        [HttpGet]
+        public IActionResult EliminarMateria(int Idmateria)
+        {
+            if (_EscuelaServicio.EliminarMateria(Idmateria))
+            {
+                return Ok("Se elimino la materia correctamente");
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+
 
     }
 }

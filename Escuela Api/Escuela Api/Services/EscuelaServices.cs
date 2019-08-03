@@ -159,7 +159,62 @@ namespace Escuela_Api.Services
                 return false;
             }
         }
+        public bool EliminarEstudiante(int Idestudiante)
+        {
+            try
+            {
+                var estudianteeliminar = _EscuelaDB.Estudiante.FirstOrDefault(x => x.idestudiante == Idestudiante);
+                _EscuelaDB.Estudiante.Remove(estudianteeliminar);
+                _EscuelaDB.SaveChanges();
+                return true;
+            }
+            catch (Exception error)
+            {
+                return false;
+            }
+        }
+        public bool EliminarProfesor(int Idprofesor)
+        {
+            try
+            {
+                var profesoreliminar = _EscuelaDB.Profesor.FirstOrDefault(x => x.idprofesor == Idprofesor);
+                _EscuelaDB.Profesor.Remove(profesoreliminar);
+                _EscuelaDB.SaveChanges();
+                return true;
+            }
+            catch (Exception error)
+            {
+                return false;
+            }
+        }
+        public bool EliminarCalificacion(int Idcalificacion)
+        {
+            try
+            {
+                var calificacioneliminar = _EscuelaDB.Calificacion.FirstOrDefault(x => x.idcalificacion == Idcalificacion);
+                _EscuelaDB.Calificacion.Remove(calificacioneliminar);
+                _EscuelaDB.SaveChanges();
+                return true;
+            }
+            catch (Exception error)
+            {
+                return false;
+            }
+        }
+        public bool EliminarMateria(int Idmateria)
+        {
+            try
+            {
+                var materiaeliminar = _EscuelaDB.Materia.FirstOrDefault(x => x.idmateria == Idmateria);
+                _EscuelaDB.Materia.Remove(materiaeliminar);
+                _EscuelaDB.SaveChanges();
+                return true;
+            }
+            catch (Exception error)
+            {
+                return false;
+            }
+        }
 
-        
     }
 }
