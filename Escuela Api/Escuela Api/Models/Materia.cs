@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Escuela_Api.Models
@@ -10,16 +11,19 @@ namespace Escuela_Api.Models
     {
         public int idmateria { get; set; }
         public string nombre { get; set; }
+        public int idprofesor { get; set; }
         public Profesor profesor { get; set; }
-        public List<Calificacion> Calificaciones { get; set; }
+        //public List<Calificacion> Calificaciones { get; set; }
 
-        internal class Map
-        {
-            private EntityTypeBuilder<Materia> entityTypeBuilder;
+        public class Map {
 
-            public Map(EntityTypeBuilder<Materia> entityTypeBuilder)
+            public Map(EntityTypeBuilder<Materia> ebMateria)
             {
-                this.entityTypeBuilder = entityTypeBuilder;
+                ebMateria.HasKey(x => x.idmateria);
+                ebMateria.Property(x => x.nombre).HasColumnName("nombre").HasMaxLength(20);
+                ebMateria.Property(x => x.idprofesor).HasColumnName("idprofesor").HasColumnType("int");
+                ebMateria.HasOne(x => x.profesor);
+
             }
         }
     }
