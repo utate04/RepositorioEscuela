@@ -114,6 +114,59 @@ namespace Escuela_Api.Controllers
                 return BadRequest();
             }
         }
+        [Route("EditarEstudiante")]
+        [HttpPut]
+        public IActionResult EditarEstudiante([FromBody] Estudiante EstudianteEditar)
+        {
+            if (_EscuelaServicio.EditarEstudiante(EstudianteEditar))
+            {
+                return Ok("Se edito el estudiante correctamente");
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+        [Route("EditarProfesor")]
+        [HttpPut]
+        public IActionResult EditarProfesor([FromBody] Profesor ProfesorEditar)
+        {
+            if (_EscuelaServicio.EditarProfesor(ProfesorEditar))
+            {
+                return Ok("Se edito el profesor correctamente");
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+        [Route("EditarCalificacion")]
+        [HttpPut]
+        public IActionResult EditarCalificacion([FromBody] Calificacion CalificacionEditar)
+        {
+            if (_EscuelaServicio.EditarCalificacion(CalificacionEditar))
+            {
+                return Ok("Se edito la calificacion correctamente");
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+        [Route("EditarMateria")]
+        [HttpPut]
+        public IActionResult EditarMateria([FromBody] Materia MateriaEditar)
+        {
+            if (_EscuelaServicio.EditarMateria(MateriaEditar))
+            {
+                return Ok("Se edito la materia correctamente");
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+       
 
     }
 }
