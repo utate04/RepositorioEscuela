@@ -101,6 +101,19 @@ namespace Escuela_Api.Controllers
                 return BadRequest();
             }
         }
+        [Route("AgregarCalificacion")]
+        [HttpPost]
+        public IActionResult AgregarCalificacion([FromBody] Calificacion CalificacionAgregar)
+        {
+            if (_EscuelaServicio.AgregarCalificacion(CalificacionAgregar))
+            {
+                return Ok("Se agrego la calificacion correctamente");
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
 
     }
 }

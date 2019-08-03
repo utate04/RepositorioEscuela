@@ -83,5 +83,21 @@ namespace Escuela_Api.Services
             }
 
         }
+        public bool AgregarCalificacion(Calificacion CalificacionAgregar)
+        {
+            try
+            {
+                _EscuelaDB.Calificacion.Add(CalificacionAgregar);
+                _EscuelaDB.SaveChanges();
+                return true;
+
+            }
+            catch (Exception error)
+            {
+                return false;
+            }
+
+        }
+
     }
 }
