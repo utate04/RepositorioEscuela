@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Escuela_Api.Models;
 using Escuela_Api.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -25,6 +26,7 @@ namespace Escuela_Api.Controllers
         }
 
         [Route("VerEstudiante")]
+        [HttpGet]
         public IActionResult VerListadodeEstudiantes()
          {
 
@@ -33,6 +35,7 @@ namespace Escuela_Api.Controllers
 
         }
         [Route("VerProfesor")]
+        [HttpGet]
         public IActionResult VerListadodeProfesores()
         {
 
@@ -42,6 +45,7 @@ namespace Escuela_Api.Controllers
 
         }
         [Route("VerMateria")]
+        [HttpGet]
         public IActionResult VerListadodeMaterias()
         {
 
@@ -50,6 +54,7 @@ namespace Escuela_Api.Controllers
 
         }
         [Route("VerCalificacion")]
+        [HttpGet]
         public IActionResult VerListadodeCalificaciones()
         {
 
@@ -57,5 +62,45 @@ namespace Escuela_Api.Controllers
             return Ok(resultado);
 
         }
+        [Route("AgregarEstudiante")]
+        [HttpPost]
+        public IActionResult AgregarEstudiante([FromBody] Estudiante EstudianteAgregar)
+        {
+            if (_EscuelaServicio.Agregar(EstudianteAgregar))
+            {
+                return Ok("Se agrego el estudiante correctamente");
+            }
+           else 
+            {
+                return BadRequest();
+            }
+        }
+        [Route("AgregarProfesor")]
+        [HttpPost]
+        public IActionResult AgregarProfesor([FromBody] Profesor ProfesorAgregar)
+        {
+            if (_EscuelaServicio.AgregarProfesor(ProfesorAgregar))
+            {
+                return Ok("Se agrego el profesor correctamente");
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+        [Route("AgregarMateria")]
+        [HttpPost]
+        public IActionResult AgregarMateria([FromBody] Materia MateriaAgregar)
+        {
+            if (_EscuelaServicio.AgregarMateria(MateriaAgregar))
+            {
+                return Ok("Se agrego la materia correctamente");
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+
     }
 }

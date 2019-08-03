@@ -29,13 +29,59 @@ namespace Escuela_Api.Services
         }
         public List<Materia> VerListadoTodasLasMaterias()
         {
-            var MateriaBuscada = _EscuelaDB.Materia.Include(x => x.profesor).ToList();
+            var MateriaBuscada = _EscuelaDB.Materia.Include(x => x.profesor).OrderByDescending(x => x.idprofesor).ToList();
             return MateriaBuscada;
         }
         public List<Calificacion> VerListadoTodasLasCalificaciones()
         {
             var CalificacionBuscada = _EscuelaDB.Calificacion.Include(x => x.Estudiante).Include(x => x.Materia).ToList();
             return CalificacionBuscada;
+        }
+
+        public bool Agregar(Estudiante EstudianteAgregar)
+        {
+            try
+            {
+                _EscuelaDB.Estudiante.Add(EstudianteAgregar);
+                _EscuelaDB.SaveChanges();
+                return true;
+                
+            }
+           catch(Exception error)
+            {
+                return false;
+            }
+           
+        }
+        public bool AgregarProfesor(Profesor ProfesorAgregar)
+        {
+            try
+            {
+                _EscuelaDB.Profesor.Add(ProfesorAgregar);
+                _EscuelaDB.SaveChanges();
+                return true;
+
+            }
+            catch (Exception error)
+            {
+                return false;
+            }
+
+        }
+        public bool AgregarMateria(Materia MateriaAgregar)
+        {
+            try
+            {
+                _EscuelaDB.Materia.Add(MateriaAgregar);
+                _EscuelaDB.SaveChanges();
+                return true;
+
+            }
+            catch (Exception error)
+            {
+                return false;
+            }
+
         }
     }
 }
