@@ -98,6 +98,68 @@ namespace Escuela_Api.Services
             }
 
         }
+        public bool EditarEstudiante(Estudiante EstudianteEditar)
+        {
+            try
+            {
+                var estudiante = _EscuelaDB.Estudiante.FirstOrDefault(x => x.idestudiante == EstudianteEditar.idestudiante);
+                estudiante.nombre = EstudianteEditar.nombre;
+                estudiante.apellido = EstudianteEditar.apellido;
+                _EscuelaDB.SaveChanges();
+                return true;
+            }
+            catch (Exception error)
+            {
+                return false;
+            }
+        }
+        public bool EditarProfesor(Profesor ProfesorEditar)
+        {
+            try
+            {
+                var profesor = _EscuelaDB.Profesor.FirstOrDefault(x => x.idprofesor == ProfesorEditar.idprofesor);
+                profesor.nombre = ProfesorEditar.nombre;
+                profesor.apellido = ProfesorEditar.apellido;
+                _EscuelaDB.SaveChanges();
+                return true;
+            }
+            catch (Exception error)
+            {
+                return false;
+            }
+        }
+        public bool EditarCalificacion(Calificacion CalificacionEditar)
+        {
+            try
+            {
+                var calificacion = _EscuelaDB.Calificacion.FirstOrDefault(x => x.idcalificacion == CalificacionEditar.idcalificacion);
+                calificacion.puntaje = CalificacionEditar.puntaje;
+                calificacion.idestudiante = CalificacionEditar.idestudiante;
+                calificacion.idmateria = CalificacionEditar.idmateria;
+                _EscuelaDB.SaveChanges();
+                return true;
+            }
+            catch (Exception error)
+            {
+                return false;
+            }
+        }
+        public bool EditarMateria(Materia MateriaEditar)
+        {
+            try
+            {
+                var materia = _EscuelaDB.Materia.FirstOrDefault(x => x.idmateria == MateriaEditar.idmateria);
+                materia.nombre = MateriaEditar.nombre;
+                materia.idprofesor = MateriaEditar.idprofesor;
+                _EscuelaDB.SaveChanges();
+                return true;
+            }
+            catch (Exception error)
+            {
+                return false;
+            }
+        }
 
+        
     }
 }
