@@ -28,5 +28,5 @@ namespace Escuela_Api.Persistence
             base.OnModelCreating(modelB);
         }
         
-    }
+    } 
 }

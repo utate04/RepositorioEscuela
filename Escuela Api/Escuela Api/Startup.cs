@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Escuela_Api.Persistence;
+using Escuela_Api.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -33,7 +34,8 @@ namespace Escuela_Api
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<EscuelaDbContext>(opciones => opciones.UseSqlServer("Data Source=.;Initial Catalog=crudescuela;Integrated Security=True"));
+            services.AddDbContext<EscuelaDbContext>(opciones => opciones.UseSqlServer("Data Source=.;Initial Catalog=crudescuela;Integrated Security=True;"));
+            services.AddTransient<EscuelaServices, EscuelaServices>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
