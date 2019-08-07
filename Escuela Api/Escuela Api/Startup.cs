@@ -37,6 +37,7 @@ namespace Escuela_Api
             services.AddDbContext<EscuelaDbContext>(opciones => opciones.UseSqlServer("Data Source=.;Initial Catalog=crudescuela;Integrated Security=True;"));
             services.AddTransient<EscuelaServices, EscuelaServices>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

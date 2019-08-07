@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Escuela Api", "Escuela Api\Escuela Api.csproj", "{7591820E-68C9-47C4-B96F-5BB8A6189AEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Escuela Api", "Escuela Api\Escuela Api.csproj", "{7591820E-68C9-47C4-B96F-5BB8A6189AEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EscuelaApiTest", "EscuelaApiTest\EscuelaApiTest.csproj", "{6BF322EB-498B-4B19-93A2-97E836159530}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{7591820E-68C9-47C4-B96F-5BB8A6189AEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7591820E-68C9-47C4-B96F-5BB8A6189AEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7591820E-68C9-47C4-B96F-5BB8A6189AEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BF322EB-498B-4B19-93A2-97E836159530}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BF322EB-498B-4B19-93A2-97E836159530}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BF322EB-498B-4B19-93A2-97E836159530}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BF322EB-498B-4B19-93A2-97E836159530}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
